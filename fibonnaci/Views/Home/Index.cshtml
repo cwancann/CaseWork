@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Fibonacci Series Generator";
+}
+
+<h2>Fibonacci Series Generator</h2>
+
+@using (Html.BeginForm("Generate", "Fibonacci", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Enter a number:")
+        @Html.TextBox("number", null, new { @class = "form-control" })
+        @Html.ValidationMessage("number")
+    </div>
+    <button type="submit" class="btn btn-primary">Generate</button>
+}
+
+@if (ViewBag.EvenNumbers != null && ViewBag.OddNumbers != null)
+{
+    <h3>Fibonacci Series:</h3>
+    <p>@string.Join(", ", ViewBag.EvenNumbers)</p>
+
+    <h3>Even Numbers:</h3>
+    <p>@string.Join(", ", ViewBag.EvenNumbers)</p>
+
+    <h3>Odd Numbers:</h3>
+    <p>@string.Join(", ", ViewBag.OddNumbers)</p>
+}
